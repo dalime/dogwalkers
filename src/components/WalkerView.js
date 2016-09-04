@@ -3,23 +3,29 @@ import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 
 import { Modal, Button } from 'react-bootstrap';
-
+import { getProfile, addWalker } from '../actions/OwnerActions';
 import { getWalker, deleteWalker, updateWalker } from '../actions/WalkerActions';
 
 @connect(
 state =>({
-  detail: state.detail
-  // sort:state.ui.sort
+  detail: state.detail,
+  ownerId: state.owner._id
 }),
 dispatch =>({
   getWalker(id) {
     dispatch(getWalker(id))
+  },
+  getProfile() {
+    dispatch(getProfile())
   },
   deleteWalker(id) {
     dispatch(deleteWalker(id))
   },
   updateWalker(id, newVal) {
     dispatch(updateWalker(id, newVal))
+  },
+  addWalker(ownerId, walkerId) {
+    dispatch(addWalker(ownerId, walkerId))
   }
   // changeSort(value){
   //   dispatch(changeSort(value))
@@ -32,8 +38,8 @@ dispatch =>({
   // }
 }))
 export default class WalkerView extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       showModal: false,
@@ -49,10 +55,12 @@ export default class WalkerView extends Component {
     this._openModal = this._openModal.bind(this);
     this._closeModal = this._closeModal.bind(this);
     this._onInputChange = this._onInputChange.bind(this);
+    this._hire = this._hire.bind(this);
   }
 
   componentWillMount() {
     this.props.getWalker(this.props.params.id);
+    this.props.getProfile()
   }
 
   _deleteWalker() {
@@ -87,6 +95,11 @@ export default class WalkerView extends Component {
     this._closeModal();
   }
 
+  _hire(e) {
+    e.preventDefault();
+    this.props.addWalker(this.props.ownerId, this.props.params.id);
+  }
+
   render() {
     let { detail } = this.props;
 
@@ -97,6 +110,7 @@ export default class WalkerView extends Component {
         <h3>Hours: {detail.hours}</h3>
         <button className="btn btn-danger" onClick={this._deleteWalker}>Delete</button>
         <button className="btn btn-warning" onClick={this._openModal}>Update</button>
+        <button className="btn btn-success" onClick={this._hire}>Hire</button>
 
         <Modal show={this.state.showModal} onHide={this._closeModal}>
           <form onSubmit={this._updateWalker}>

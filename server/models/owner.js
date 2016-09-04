@@ -35,8 +35,8 @@ ownerSchema.statics.register = function(userObj, cb) {
   });
 };
 
-ownerSchema.statics.authenticate = function(userObj, cb) {
-  let { username, password } = userObj;
+ownerSchema.statics.authenticate = function(ownerObj, cb) {
+  let { username, password } = ownerObj;
 
   this.findOne({ username }, (err, dbUser) => {
     if(err || !dbUser) {
@@ -62,16 +62,17 @@ ownerSchema.statics.authMiddleware = function(req, res, next) {
   jwt.verify(token, JWT_SECRET, (err, payload) => {
     if(err) return res.status(401).send(err);
 
-    mongoose.model('User')
+    mongoose.model('Owner')
     .findById(payload._id)
     .select('-password')
-    .exec((err, user) => {
+    .populate('walker')
+    .exec((err, owner) => {
       if(err) return res.status(400).send(err);
-      if(!user) return res.status(401).send({error: 'User not found.'});
+      if(!owner) return res.status(401).send({error: 'Owner not found.'})
 
-      req.user = user;
+      req.owner = owner;
       next();
-    });
+    })
   });
 };
 

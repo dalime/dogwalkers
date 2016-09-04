@@ -23,7 +23,7 @@ render(
      <Route path = '/register' component ={Register}/>
      <Route path = '/login' component ={LoginForm}/>
      <Route path = '/loginSuccess' component ={LoginSuccess}/>
-     <Route path = '/editProfile' component ={EditProfile}/>
+     <Route path = '/editProfile/:id' component ={EditProfile}/>
     </Route>
   </Router>
   </Provider>,

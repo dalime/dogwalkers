@@ -4,9 +4,13 @@ import { Link } from 'react-router'
 //import UserWelcome from './UserWelcome'
 //import UserActions from '../actions/UserActions'
 
-export default class Navbar extends Component {
-  constructor() {
-    super();
+import { logout } from '../actions/OwnerActions';
+
+import { connect } from 'react-redux';
+
+class Navbar extends Component {
+  constructor(props) {
+    super(props);
 
     // this.state = {
     //   profile: UserStore.get()
@@ -30,7 +34,7 @@ export default class Navbar extends Component {
   }
 
   _logout() {
-    //UserActions.logout();
+    this.props.logout()
   }
 
   render() {
@@ -66,3 +70,13 @@ export default class Navbar extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => ({
+  username: state.owner.username
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  logout: (state) => dispatch(logout(state))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar)

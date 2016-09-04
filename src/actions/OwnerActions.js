@@ -1,7 +1,7 @@
 import axios from 'axios'
-import RouteActions from './actions/RouteActions'
-import UserActions from './actions/UserActions'
-import ServerActions from './actions/ServerActions'
+import RouteActions from './RouteActions'
+//import UserActions from './actions/UserActions'
+//import ServerActions from './actions/ServerActions'
 
 
 export function receiveProfile(profile) {
@@ -19,47 +19,89 @@ export function removeProfile() {
 
 export function register(owner) {
     axios.post('/api/owners/register', owner)
-      .then(res => {
+      .then(() => {
         RouteActions.route('/login');
       })
       .catch(console.error)
 }
 
-export function login(owner) {
+// export function getWalker(id){
+//   return dispatch =>{
+//     axios.get(`/api/walkers/${id}`)
+//          .then(res => res.data)
+//          .then(walker => {
+//           dispatch(receiveOneWalker(walker))
+//          })
+//          .catch(console.error)
+//   }
+// }
+
+export function login (owner) {
+  return dispatch => {
     axios.post('/api/owners/login', owner)
-      .then(() => {
-        dispatch(getProfile())
-        RouteActions.route('/loginSuccess');
-      })
-      .catch(console.error)
+    .then(() => {
+      dispatch(getProfile())
+      RouteActions.route('/loginSuccess')
+    })
+    .catch(console.error)
+  }
 }
 
 export function logout() {
+  return dispatch => {
     axios.post('/api/owners/logout')
-      .then(() => {
-        dispatch(removeProfile());
-        RouteActions.route('/');
-      })
-      .catch(console.error)
+    .then(() => {
+      RouteActions.route('/');
+      dispatch(removeProfile());
+    })
+    .catch(console.error)
+  }
 }
 
 export function getProfile() {
+  return dispatch => {
     axios.get('/api/owners/profile')
-      .then(res => res.data)
-      .then(profile => {
-        dispatch(receiveProfile(profile))
-      })
-      .catch(console.error)
+    .then(res => res.data)
+    .then(profile => {
+      dispatch(receiveProfile(profile))
+    })
+    .catch(console.error)
+  }
 }
 
 export function updateProfile(id, obj) {
-  axios.put(`/api/owners/update/${id}`, obj)
+  return dispatch => {
+    axios.put(`/api/owners/${id}`, obj)
     .then(res => res.data)
     .then(profile => {
       dispatch(receiveProfile(profile));
-      RouteActions.route('/profile');
+      RouteActions.route('/loginSuccess');
     })
     .catch(console.error)
+  }
+}
+
+export function addWalker(ownerId, walkerId) {
+  return dispatch => {
+    axios.put(`/api/owners/${ownerId}/addWalker/${walkerId}`)
+    .then(res => res.data)
+    .then(profile => {
+      dispatch(receiveProfile(profile));
+      RouteActions.route('/walkers');
+    })
+    .catch(console.error)
+  }
+}
+
+export function removeWalker(ownerId) {
+  return dispatch => {
+    axios.put(`/api/owners/removeWalker/${ownerId}`)
+      .then(res => res.data)
+      .then(profile => {
+        dispatch(receiveProfile(profile));
+      })
+      .catch(console.error)
+  }
 }
 // //synchronous action creator
 // import axios from 'axios'
