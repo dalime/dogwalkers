@@ -1,8 +1,9 @@
-// import {combineReducers} from 'redux'
-// import pokemon from './pokemonReducer'
-// import ui from './uiReducer'
-//
-// export default combineReducers({
-//   pokemon,
-//   ui
-// })
+import {combineReducers} from 'redux'
+import walkers from './walkerReducer'
+import detail from './detailReducer'
+//import ui from './uiReducer'
+
+export default combineReducers({
+  walkers,
+  detail
+})

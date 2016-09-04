@@ -16,7 +16,7 @@ router.route('/')
 
 router.route('/:id')
       .get((req,res)=>{
-        Walker.findOne(req.params.id)
+        Walker.findById(req.params.id)
         .then(walker =>res.send(walker))
         .catch(err => res.status(400).send(err))
       })
