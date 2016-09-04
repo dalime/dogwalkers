@@ -1,0 +1,14 @@
+.AppBar {
+  background-color: #ffcc00 !important;
+}
+
+.AppBar h1 {
+  color: #686868 !important;
+}
+
+.AppBar div {
+  background-color: #ffcc00 !important;
+  margin-right: 10px;
+  margin-top: 2px;
+  color: #686868;
+}
