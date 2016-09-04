@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router'
 
+import Navbar from './Navbar';
+
 export default class Layout extends Component {
   render() {
     return (
-     <div className = "container">
-     <Link to ="">Home | </Link>
-      <Link to ="/walkers">Walkers</Link>
-
-      {this.props.children}
+     <div>
+      <Navbar />
+      <div className="container">
+        {this.props.children}
+      </div>
      </div>
     )
   }

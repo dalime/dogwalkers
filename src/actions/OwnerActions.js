@@ -1,3 +1,66 @@
+import axios from 'axios'
+import RouteActions from './actions/RouteActions'
+import UserActions from './actions/UserActions'
+import ServerActions from './actions/ServerActions'
+
+
+export function receiveProfile(profile) {
+  return {
+    type: 'RECEIVE_PROFILE',
+    payload: { profile }
+  }
+}
+
+export function removeProfile() {
+  return {
+    type: 'REMOVE_PROFILE'
+  }
+}
+
+export function register(owner) {
+    axios.post('/api/owners/register', owner)
+      .then(res => {
+        RouteActions.route('/login');
+      })
+      .catch(console.error)
+}
+
+export function login(owner) {
+    axios.post('/api/owners/login', owner)
+      .then(() => {
+        dispatch(getProfile())
+        RouteActions.route('/loginSuccess');
+      })
+      .catch(console.error)
+}
+
+export function logout() {
+    axios.post('/api/owners/logout')
+      .then(() => {
+        dispatch(removeProfile());
+        RouteActions.route('/');
+      })
+      .catch(console.error)
+}
+
+export function getProfile() {
+    axios.get('/api/owners/profile')
+      .then(res => res.data)
+      .then(profile => {
+        dispatch(receiveProfile(profile))
+      })
+      .catch(console.error)
+}
+
+export function updateProfile(id, obj) {
+  axios.put(`/api/owners/update/${id}`, obj)
+    .then(res => res.data)
+    .then(profile => {
+      dispatch(receiveProfile(profile));
+      RouteActions.route('/profile');
+    })
+    .catch(console.error)
+}
 // //synchronous action creator
 // import axios from 'axios'
 // export function receiveOwners(owners){

@@ -4,7 +4,6 @@ import { fetchWalkers, createWalker } from '../actions/WalkerActions'
 // import {fetchPokemon, createPokemon, changeSort, deletePokemon ,updatePokemon} from '../actions/PokemonActions'
 import WalkersList from './WalkersList'
 import WalkerView from './WalkerView';
-import FormModal from './FormModal'
 import SortSelect from './SortSelect'
 
 

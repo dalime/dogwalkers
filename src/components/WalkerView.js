@@ -4,7 +4,7 @@ import { browserHistory } from 'react-router';
 
 import { Modal, Button } from 'react-bootstrap';
 
-import { getWalker, deleteWalker, updateWalker } from '../actions/WalkerActions'
+import { getWalker, deleteWalker, updateWalker } from '../actions/WalkerActions';
 
 @connect(
 state =>({

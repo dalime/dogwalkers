@@ -1,9 +1,10 @@
 import {combineReducers} from 'redux'
 import walkers from './walkerReducer'
 import detail from './detailReducer'
-//import ui from './uiReducer'
+import owner from './ownerReducer'
 
 export default combineReducers({
   walkers,
-  detail
+  detail,
+  owner
 })
