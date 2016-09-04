@@ -1,11 +1,11 @@
-export default function ownerReducer (state = {},action) {
+export default function ownerReducer (state = {}, action) {
   switch(action.type){
-    case 'RECEIVE_PROFILE':
+    case 'RECEIVE_PROFILE': {
       return action.payload.profile;
-      break;
-    case 'REMOVE_PROFILE':
+    }
+    case 'REMOVE_PROFILE': {
       return null;
-      break;
+    }
     default:
       return state;
   }

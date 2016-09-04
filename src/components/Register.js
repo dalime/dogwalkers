@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import UserActions from '../actions/UserActions'
+import { register } from '../actions/OwnerActions';
 
 export default class Register extends Component {
   constructor() {
@@ -8,7 +8,12 @@ export default class Register extends Component {
     this.state = {
       username: '',
       password1: '',
-      password2: ''
+      password2: '',
+      name: '',
+      pets: '',
+      image: '',
+      phone: '',
+      location: ''
     }
     this._onInputChange = this._onInputChange.bind(this);
     this._submit = this._submit.bind(this);
@@ -25,7 +30,7 @@ export default class Register extends Component {
 
   _submit(e) {
     e.preventDefault();
-    let { username, password1, password2 } = this.state;
+    let { username, password1, password2, name, pets, image, phone, location } = this.state;
 
     if(password1 !== password2) {
       this.setState({
@@ -35,16 +40,21 @@ export default class Register extends Component {
       return alert('Passwords do not match, try again.');
     }
 
-    let user = {
+    let owner = {
       username,
-      password: password1
+      password: password1,
+      name,
+      pets: [pets],
+      image,
+      phone,
+      location
     };
 
-    //UserActions.register(user);
+    register(owner);
   }
 
   render() {
-    let { username, password1, password2 } = this.state;
+    let { username, password1, password2, name, pets, image, phone, location } = this.state;
 
     return (
       <div>
@@ -60,6 +70,26 @@ export default class Register extends Component {
           <div className="form-group">
             <label>Password (again)</label>
             <input type="password" className="form-control" placeholder="Password" required value={password2} data-statekey='password2' onChange={this._onInputChange}/>
+          </div>
+          <div className="form-group">
+            <label>Name</label>
+            <input type="text" className="form-control" placeholder="Name" required value={name} data-statekey='name' onChange={this._onInputChange}/>
+          </div>
+          <div className="form-group">
+            <label>Pets</label>
+            <input type="text" className="form-control" placeholder="Pets" required value={pets} data-statekey='pets' onChange={this._onInputChange}/>
+          </div>
+          <div className="form-group">
+            <label>Image</label>
+            <input type="text" className="form-control" placeholder="Image" required value={image} data-statekey='image' onChange={this._onInputChange}/>
+          </div>
+          <div className="form-group">
+            <label>Phone</label>
+            <input type="text" className="form-control" placeholder="Phone" required value={phone} data-statekey='phone' onChange={this._onInputChange}/>
+          </div>
+          <div className="form-group">
+            <label>Location</label>
+            <input type="text" className="form-control" placeholder="Location" required value={location} data-statekey='location' onChange={this._onInputChange}/>
           </div>
           <button type="submit" className="btn btn-default">Submit</button>
         </form>
