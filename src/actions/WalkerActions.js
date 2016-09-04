@@ -63,7 +63,7 @@ export function deleteWalker(id) {
   }
 }
 //
-export function updateWalker(newVal, id) {
+export function updateWalker(id, newVal) {
   return dispatch =>{
     axios.put(`/api/walkers/${id}` , newVal)
       .then(res => res.data)
