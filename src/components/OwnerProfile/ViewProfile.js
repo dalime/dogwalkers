@@ -40,15 +40,20 @@ class ViewProfile extends Component {
     //let { _id ,username} = this.state.profile;
     let { username, name, image, phone, location, pets, _id, walker } = this.props;
 
-    let path = `/editProfile/${_id}`
 
     return(
 
-      <div>
-        <h1>Hello</h1>
-        <p>{username}'s profile page</p>
+      <div className='row text-center'>
+        <div className="col-xs-12 col-md-6 col-md-offset-3">
+          <h1>Hello</h1>
+        </div>
+        <div className="col-xs-12 col-md-6 col-md-offset-3">
+          <p>{username}'s profile page</p>
+        </div>
         <ShowProfile profile={this.props}/>
-        <Link to={path}>Edit Profile</Link>
+        <div className="col-xs-12 col-md-6 col-md-offset-3">
+          <Link to={`/editProfile/${_id}`} className='editProf'>Edit Profile</Link>
+        </div>
       </div>
     )
   }

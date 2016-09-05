@@ -45,11 +45,11 @@ import { Link } from 'react-router';
       let path = '/walkers/' + _id;
 
        return (
-        <div className="col-xs-12 col-md-4" key ={_id}>
+        <div className="col-xs-12 col-md-4 walker" key ={_id}>
          <div>
-           <Link to={path}><img src={image} width = "150 px" alt=""/></Link>
+           <Link to={path}><div style={{'backgroundImage': `url(${image})`}} className='imgDiv'></div></Link>
          </div>
-         <div>
+         <div className='text-center'>
            <h3>{name}</h3>
            <p>{phone}</p>
            <div>

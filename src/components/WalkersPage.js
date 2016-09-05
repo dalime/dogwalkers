@@ -96,8 +96,8 @@ export default connect(
 
     return (
       <div>
-        <h1>Hello</h1>
-        <form className="form-group" onSubmit={this._submitForm}>
+        <h1 className='text-center'>Dog Walkers</h1>
+        {/* <form className="form-group" onSubmit={this._submitForm}>
         <label>
         Name:
         <input type="text" data-type="name" className="form-control" onChange={this._onInputChange}/>
@@ -121,7 +121,7 @@ export default connect(
         <button className="btn btn-success">
         Submit
         </button>
-        </form>
+        </form> */}
         <WalkersList walkers={walkers}/>
 
         {/* <FormModal

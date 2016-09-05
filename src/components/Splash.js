@@ -3,7 +3,12 @@ import React, { Component } from 'react';
 export default class Splash extends Component {
   render() {
     return (
-      <h1 className="text-center">Welcome to Dog Walkers!</h1>
+      <div className='splashBackground'>
+        <div className='splashText'>
+          <h1 className="text-center titleSplash">DogWalkers</h1>
+          <h3 className="text-center">find your dog walker</h3>
+        </div>
+      </div>
     )
   }
 }

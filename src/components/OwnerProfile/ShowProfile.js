@@ -3,6 +3,8 @@ import React , {Component} from 'react'
 import { connect } from 'react-redux';
 
 import { getProfile, removeWalker } from '../../actions/OwnerActions';
+import { TextField, RaisedButton } from 'material-ui';
+
 
 class ShowProfile extends Component {
   constructor(props) {
@@ -30,18 +32,28 @@ class ShowProfile extends Component {
         <div>
           <p>Walker: {walker.name}</p>
           <p>Walker Number: {walker.phone}</p>
-          <button className="btn btn-danger" onClick={this._fire}>Fire</button>
+          <div className="col-xs-12 text-center">
+            <RaisedButton
+            label="Fire"
+            labelPosition="before"
+            className='editBtn'
+            onClick={this._fire}/>
+          </div>
         </div>
       )
     }
 
     return (
-      <div>
-        <img width="150px" src={image} alt="NO_IMAGE"/>
-        <p>{name}</p>
-        <p>{phone}</p>
-        <p>{location}</p>
-        {Walker}
+      <div className="col-xs-12 col-md-6 col-md-offset-3 text-center">
+        <div className="profileFrame">
+          <img src={image} className='profileImg'/>
+          <div className="walkerProfText">
+            <p className='profContent'>Name: {name}</p>
+            <p className='profContent'>Phone Number: {phone}</p>
+            <p className='profContent'>Location: {location}</p>
+            {Walker}
+          </div>
+        </div>
       </div>
     )
   }

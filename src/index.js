@@ -16,6 +16,7 @@ import Register from './components/Register';
 import LoginForm from './components/LoginForm';
 import LoginSuccess from './components/OwnerProfile/LoginSuccess';
 import EditProfile from './components/OwnerProfile/EditProfile';
+import ViewProfile from './components/OwnerProfile/ViewProfile';
 import store from './store'
 
 render(
@@ -29,6 +30,7 @@ render(
      <Route path = '/login' component ={LoginForm}/>
      <Route path = '/loginSuccess' component ={LoginSuccess}/>
      <Route path = '/editProfile/:id' component ={EditProfile}/>
+     <Route path = '/profile' component ={ViewProfile}/>
     </Route>
   </Router>
   </Provider>,

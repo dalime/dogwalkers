@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { login } from '../actions/OwnerActions'
 import { connect } from 'react-redux'
+import { TextField, RaisedButton } from 'material-ui'
 
 class LoginForm extends Component {
   constructor(props) {
@@ -31,19 +32,33 @@ class LoginForm extends Component {
 
   render() {
     let { username, password } = this.state;
-
+    let style = {
+      borderColor: '#000'
+    }
     return (
       <div>
         <form onSubmit={this._submit}>
-          <div className="form-group">
-            <label>Username</label>
-            <input type="text" className="form-control" placeholder="Username" required data-statekey='username' onChange={this._onInputChange}/>
+          <div className='col-xs-12 col-md-6 col-md-offset-3'>
+            <TextField
+            hintText='Username' floatingLabelText="Username"
+            className="editInput" floatingLabelFixed={true} id='username'
+            required onChange={this._onInputChange} data-statekey="username"
+            underlineFocusStyle={style}
+            />
+            <TextField
+            hintText='Password' floatingLabelText="Password" type='password'
+            className="editInput" floatingLabelFixed={true} id='password'
+            required onChange={this._onInputChange} data-statekey="password"
+            underlineFocusStyle={style}
+            />
+            <div className="col-xs-12 text-center">
+              <RaisedButton
+              label="Submit"
+              labelPosition="before"
+              type='submit'
+              className='editBtn'/>
+            </div>
           </div>
-          <div className="form-group">
-            <label>Password</label>
-            <input type="password" className="form-control" placeholder="Password" required data-statekey='password' onChange={this._onInputChange}/>
-          </div>
-          <button type="submit" className="btn btn-default">Submit</button>
         </form>
       </div>
     )

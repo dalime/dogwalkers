@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router'
 
 import Navbar from './Navbar';
-import AppBar from './AppBar';
+import Appbar from './Appbar';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
@@ -11,9 +11,9 @@ export default class Layout extends Component {
     return (
     <MuiThemeProvider>
      <div>
-      <AppBar />
+      <Appbar />
       {/* <Navbar /> */}
-      <div className="container">
+      <div className="container-fluid">
         {this.props.children}
       </div>
      </div>
