@@ -28,10 +28,6 @@ dispatch =>({
   addWalker(ownerId, walkerId) {
     dispatch(addWalker(ownerId, walkerId))
   }
-<<<<<<< HEAD
-=======
-
->>>>>>> 97612abcbe9c1d0019b78e82bb7e53acf6c446b8
 }))
 export default class WalkerView extends Component {
   constructor(props) {
@@ -115,15 +111,15 @@ export default class WalkerView extends Component {
         </div>
         <div className="text-center">
           <RaisedButton
-          label="Edit"
-          labelPosition="before"
-          className='editBtn'
-          onClick={this._openModal}/>
+            label="Edit"
+            labelPosition="before"
+            className='editBtn'
+            onClick={this._openModal}/>
           <RaisedButton
-          label="Hire"
-          labelPosition="before"
-          className='editBtn'
-          onClick={this._hire}/>
+            label="Hire"
+            labelPosition="before"
+            className='editBtn'
+            onClick={this._hire}/>
         </div>
 
         <Modal show={this.state.showModal} onHide={this._closeModal} className='Modal'>
@@ -133,56 +129,35 @@ export default class WalkerView extends Component {
             </Modal.Header>
             <Modal.Body>
               <TextField
-              hintText='Name'
-              className="editInput" floatingLabelFixed={true} id='name'
-              onChange={this._onInputChange} data-type="name"
-              underlineFocusStyle={style} value={this.state.name} required
+                hintText='Name'
+                className="editInput" floatingLabelFixed={true} id='name'
+                onChange={this._onInputChange} data-type="name"
+                underlineFocusStyle={style} value={this.state.name} required
               />
               <TextField
-              hintText='Hours'
-              className="editInput" floatingLabelFixed={true} id='hours'
-              onChange={this._onInputChange} data-type="hours"
-              underlineFocusStyle={style} value={this.state.hours} required
+                hintText='Hours'
+                className="editInput" floatingLabelFixed={true} id='hours'
+                onChange={this._onInputChange} data-type="hours"
+                underlineFocusStyle={style} value={this.state.hours} required
               />
               <TextField
-              hintText='Image'
-              className="editInput" floatingLabelFixed={true} id='image'
-              onChange={this._onInputChange} data-type="image"
-              underlineFocusStyle={style} value={this.state.image} required
+                hintText='Image'
+                className="editInput" floatingLabelFixed={true} id='image'
+                onChange={this._onInputChange} data-type="image"
+                underlineFocusStyle={style} value={this.state.image} required
               />
               <TextField
-              hintText='Phone'
-              className="editInput" floatingLabelFixed={true} id='phone'
-              onChange={this._onInputChange} data-type="phone"
-              underlineFocusStyle={style} value={this.state.phone} required
+                hintText='Phone'
+                className="editInput" floatingLabelFixed={true} id='phone'
+                onChange={this._onInputChange} data-type="phone"
+                underlineFocusStyle={style} value={this.state.phone} required
               />
               <TextField
-              hintText='Location'
-              className="editInput" floatingLabelFixed={true} id='location'
-              onChange={this._onInputChange} data-type="location"
-              underlineFocusStyle={style} value={this.state.location} required
+                hintText='Location'
+                className="editInput" floatingLabelFixed={true} id='location'
+                onChange={this._onInputChange} data-type="location"
+                underlineFocusStyle={style} value={this.state.location} required
               />
-
-              {/* <label>
-                Name:
-                <input type="text" data-type='name' onChange={this._onInputChange}  value={this.state.name} required/>
-              </label>
-              <label>
-                Hours:
-                <input type="text" data-type='hours' onChange={this._onInputChange} value={this.state.hours} required/>
-              </label>
-              <label>
-                Image:
-                <input type="text" data-type='image' onChange={this._onInputChange} value={this.state.image} required/>
-              </label>
-              <label>
-                Phone:
-                <input type="text" data-type='phone' onChange={this._onInputChange} value={this.state.phone} required/>
-              </label>
-              <label>
-                Location:
-                <input type="text" data-type='location' onChange={this._onInputChange} value={this.state.location} required/>
-              </label> */}
             </Modal.Body>
             <Modal.Footer>
               <Button className="btn btn-success" type="submit">Save</Button>

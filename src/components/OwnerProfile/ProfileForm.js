@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { TextField, RaisedButton } from 'material-ui';
 
 class ProfileForm extends Component{
-  constructor(props) {
+  constructor(props){
     super(props);
 
     this.state = {
@@ -34,7 +34,9 @@ class ProfileForm extends Component{
   _update(e) {
     e.preventDefault();
     let id = e.target.getAttribute('data-id');
+
     let updateObj = this.state;
+
     this.props.updateProfile(id, updateObj);
   }
   resetForm(e) {
@@ -43,63 +45,60 @@ class ProfileForm extends Component{
 
   render() {
     let { username , name , image, phone, location, pets, _id } = this.props;
-<<<<<<< HEAD
-=======
     let style = {
       borderColor: '#000'
     }
 
->>>>>>> 97612abcbe9c1d0019b78e82bb7e53acf6c446b8
     return (
       <form onSubmit={this._update} data-id={_id}>
         <div className="col-xs-12 col-md-6 col-md-offset-3">
           <TextField
-          hintText={username} floatingLabelText="Username"
-          className="editInput" floatingLabelFixed={true} id='username'
-          required onChange={this._onInputChange} data-statekey="username"
-          underlineFocusStyle={style}
+            hintText={username} floatingLabelText="Username"
+            className="editInput" floatingLabelFixed={true} id='username'
+            required onChange={this._onInputChange} data-statekey="username"
+            underlineFocusStyle={style}
           />
           <TextField
-          hintText={name} floatingLabelText="Name"
-          className="editInput" floatingLabelFixed={true} id='name'
-          required onChange={this._onInputChange} data-statekey="name"
-          underlineFocusStyle={style}
+            hintText={name} floatingLabelText="Name"
+            className="editInput" floatingLabelFixed={true} id='name'
+            required onChange={this._onInputChange} data-statekey="name"
+            underlineFocusStyle={style}
           />
           <TextField
-          hintText={image} floatingLabelText="Image"
-          className="editInput" floatingLabelFixed={true} id='image'
-          required onChange={this._onInputChange} data-statekey="image"
-          underlineFocusStyle={style}
+            hintText={image} floatingLabelText="Image"
+            className="editInput" floatingLabelFixed={true} id='image'
+            required onChange={this._onInputChange} data-statekey="image"
+            underlineFocusStyle={style}
           />
           <TextField
-          hintText={phone} floatingLabelText="Phone"
-          className="editInput" floatingLabelFixed={true} id='phone'
-          required onChange={this._onInputChange} data-statekey="phone"
-          underlineFocusStyle={style}
+            hintText={phone} floatingLabelText="Phone"
+            className="editInput" floatingLabelFixed={true} id='phone'
+            required onChange={this._onInputChange} data-statekey="phone"
+            underlineFocusStyle={style}
           />
           <TextField
-          hintText={location} floatingLabelText="Location"
-          className="editInput" floatingLabelFixed={true} id='location'
-          required onChange={this._onInputChange} data-statekey="location"
-          underlineFocusStyle={style}
+            hintText={location} floatingLabelText="Location"
+            className="editInput" floatingLabelFixed={true} id='location'
+            required onChange={this._onInputChange} data-statekey="location"
+            underlineFocusStyle={style}
           />
           <TextField
-          hintText={pets} floatingLabelText="Pets"
-          className="editInput" floatingLabelFixed={true} id='pets'
-          required onChange={this._onInputChange} data-statekey="pets"
-          underlineFocusStyle={style}
+            hintText={pets} floatingLabelText="Pets"
+            className="editInput" floatingLabelFixed={true} id='pets'
+            required onChange={this._onInputChange} data-statekey="pets"
+            underlineFocusStyle={style}
           />
           <div className="col-xs-12 text-center">
             <RaisedButton
-            label="Save"
-            labelPosition="before"
-            type='submit'
-            className='editBtn'/>
+              label="Save"
+              labelPosition="before"
+              type='submit'
+              className='editBtn'/>
             <RaisedButton
-            label="Reset"
-            labelPosition="before"
-            onClick={this.resetForm}
-            className='editBtn'/>
+              label="Reset"
+              labelPosition="before"
+              onClick={this.resetForm}
+              className='editBtn'/>
           </div>
         </div>
       </form>

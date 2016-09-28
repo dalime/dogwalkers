@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { login } from '../actions/OwnerActions'
-import { connect } from 'react-redux'
-import { TextField, RaisedButton } from 'material-ui'
+import React, { Component } from 'react';
+import { login } from '../actions/OwnerActions';
+import { connect } from 'react-redux';
+import { TextField, RaisedButton } from 'material-ui';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -26,32 +26,30 @@ class LoginForm extends Component {
 
   _submit(e) {
     e.preventDefault();
+
     this.props.login(this.state);
   }
 
   render() {
     let { username, password } = this.state;
-<<<<<<< HEAD
-=======
     let style = {
       borderColor: '#000'
     }
->>>>>>> 97612abcbe9c1d0019b78e82bb7e53acf6c446b8
     return (
       <div>
         <form onSubmit={this._submit}>
           <div className='col-xs-12 col-md-6 col-md-offset-3'>
             <TextField
-            hintText='Username' floatingLabelText="Username"
-            className="editInput" floatingLabelFixed={true} id='username'
-            required onChange={this._onInputChange} data-statekey="username"
-            underlineFocusStyle={style}
+              hintText='Username' floatingLabelText="Username"
+              className="editInput" floatingLabelFixed={true} id='username'
+              required onChange={this._onInputChange} data-statekey="username"
+              underlineFocusStyle={style}
             />
             <TextField
-            hintText='Password' floatingLabelText="Password" type='password'
-            className="editInput" floatingLabelFixed={true} id='password'
-            required onChange={this._onInputChange} data-statekey="password"
-            underlineFocusStyle={style}
+              hintText='Password' floatingLabelText="Password" type='password'
+              className="editInput" floatingLabelFixed={true} id='password'
+              required onChange={this._onInputChange} data-statekey="password"
+              underlineFocusStyle={style}
             />
             <div className="col-xs-12 text-center">
               <RaisedButton

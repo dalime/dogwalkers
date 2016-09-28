@@ -1,17 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
-<<<<<<< HEAD
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-=======
-import { Provider } from 'react-redux'
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
-import './style.css'
->>>>>>> 97612abcbe9c1d0019b78e82bb7e53acf6c446b8
+import './style.css';
 
 import Layout from './components/Layout';
 import Splash from './components/Splash';
@@ -21,13 +16,8 @@ import Register from './components/Register';
 import LoginForm from './components/LoginForm';
 import LoginSuccess from './components/OwnerProfile/LoginSuccess';
 import EditProfile from './components/OwnerProfile/EditProfile';
-<<<<<<< HEAD
-
-import store from './store';
-=======
 import ViewProfile from './components/OwnerProfile/ViewProfile';
-import store from './store'
->>>>>>> 97612abcbe9c1d0019b78e82bb7e53acf6c446b8
+import store from './store';
 
 render(
  <Provider store ={store}>

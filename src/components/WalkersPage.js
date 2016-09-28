@@ -17,7 +17,9 @@ dispatch =>({
     dispatch(createWalker(walker))
   }
 }))
+
  export default class  WalkersPage extends Component {
+  //
   constructor(){
     super();
 
@@ -35,7 +37,6 @@ dispatch =>({
 
   _submitForm(e){
     e.preventDefault();
-
     this.props.createWalker(this.state)
   }
 
@@ -58,38 +59,6 @@ dispatch =>({
     return (
       <div>
         <h1 className='text-center'>Dog Walkers</h1>
-        {/* <form className="form-group" onSubmit={this._submitForm}>
-        <label>
-          Name:
-          <input type="text" data-type="name" className="form-control" onChange={this._onInputChange}/>
-        </label>
-        <label>
-          Hours:
-          <input type="text" data-type="hours" className="form-control" onChange={this._onInputChange}/>
-        </label>
-        <label>
-          Image:
-          <input type="text" data-type="image" className="form-control" onChange={this._onInputChange}/>
-        </label>
-        <label>
-          Phone:
-          <input type="text" data-type="phone" className="form-control" onChange={this._onInputChange}/>
-        </label>
-        <label>
-          Location:
-          <input type="text" data-type="location" className="form-control" onChange={this._onInputChange}/>
-        </label>
-<<<<<<< HEAD
-          <button className="btn btn-success">
-            Submit
-          </button>
-        </form>
-=======
-        <button className="btn btn-success">
-        Submit
-        </button>
-        </form> */}
->>>>>>> 97612abcbe9c1d0019b78e82bb7e53acf6c446b8
         <WalkersList walkers={walkers}/>
       </div>
     )
