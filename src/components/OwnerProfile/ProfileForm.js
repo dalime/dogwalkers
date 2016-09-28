@@ -4,7 +4,7 @@ import { updateProfile } from '../../actions/OwnerActions'
 import { connect } from 'react-redux';
 
 class ProfileForm extends Component{
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -20,7 +20,7 @@ class ProfileForm extends Component{
     this._update = this._update.bind(this);
     this.resetForm = this.resetForm.bind(this);
   }
-  _onInputChange(e){
+  _onInputChange(e) {
     let key = e.target.dataset.statekey;
     let value = e.target.value;
 
@@ -29,26 +29,18 @@ class ProfileForm extends Component{
     });
   }
 
-  _update(e){
+  _update(e) {
     e.preventDefault();
     let id = e.target.getAttribute('data-id');
-
     let updateObj = this.state;
-
     this.props.updateProfile(id, updateObj);
-
-    //UserActions.updateProfile(id,this.state);
-
-    // console.log(id);
-    // console.log("obj:",this.state);
   }
-  resetForm(e){
+  resetForm(e) {
     e.preventDefault();
   }
 
-  render(){
+  render() {
     let { username , name , image, phone, location, pets, _id } = this.props;
-
     return (
       <form onSubmit={this._update} data-id={_id}>
         <div className="form-group">

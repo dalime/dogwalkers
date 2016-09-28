@@ -24,9 +24,7 @@ ownerSchema.statics.register = function(userObj, cb) {
       if(err) return cb(err);
       bcrypt.hash(userObj.password, salt, null, (err, hash) => {
         if(err) return cb(err);
-
         userObj.password = hash;
-
         this.create(userObj, (err, newUser) => {
           cb(err);
         });
@@ -37,20 +35,16 @@ ownerSchema.statics.register = function(userObj, cb) {
 
 ownerSchema.statics.authenticate = function(ownerObj, cb) {
   let { username, password } = ownerObj;
-
   this.findOne({ username }, (err, dbUser) => {
     if(err || !dbUser) {
       return cb(err || {error: 'Login failed.  Username or password incorrect.'});
     }
-
     bcrypt.compare(password, dbUser.password, (err, isGood) => {
       if(err) return cb(err);
       if(!isGood) return cb({error: 'Login failed.  Username or password incorrect.'});
-
       let payload = {
         _id: dbUser._id
       }
-
       jwt.sign(payload, JWT_SECRET, {}, cb);
     })
   });
@@ -58,21 +52,19 @@ ownerSchema.statics.authenticate = function(ownerObj, cb) {
 
 ownerSchema.statics.authMiddleware = function(req, res, next) {
   let token = req.cookies.authtoken;
-
   jwt.verify(token, JWT_SECRET, (err, payload) => {
     if(err) return res.status(401).send(err);
-
     mongoose.model('Owner')
-    .findById(payload._id)
-    .select('-password')
-    .populate('walker')
-    .exec((err, owner) => {
-      if(err) return res.status(400).send(err);
-      if(!owner) return res.status(401).send({error: 'Owner not found.'})
+      .findById(payload._id)
+      .select('-password')
+      .populate('walker')
+      .exec((err, owner) => {
+        if(err) return res.status(400).send(err);
+        if(!owner) return res.status(401).send({error: 'Owner not found.'})
 
-      req.owner = owner;
-      next();
-    })
+        req.owner = owner;
+        next();
+      })
   });
 };
 

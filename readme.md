@@ -1,22 +1,9 @@
-# MERN Stack Template
+Dog Walkers
 
-Includes:
-
-* MongoDB / Mongoose
-* Express
-* React
-* Webpack
-* Babel
-* Bootstrap
-
-and more!
-
-To start:
-```
+Start:
 npm i
-npm start (or nodemon)
-```
+nodemon
 
-#### Note:
+A simple app for dog owners to find walkers for their dogs.
 
-Be sure to change the database name in server/app.js to something you like.
+Created by Danny Lim, Dhilipanraja Joseph, and Zhaggy.

@@ -1,19 +1,13 @@
-import React , {Component} from 'react'
-import EditProfile from './EditProfile'
-import { Link } from 'react-router'
-//import UserStore from '../../stores/UserStore'
-import ShowProfile from './ShowProfile'
-
+import React , {Component} from 'react';
+import EditProfile from './EditProfile';
+import { Link } from 'react-router';
+import ShowProfile from './ShowProfile';
 import { connect } from 'react-redux';
-
 import { getProfile } from '../../actions/OwnerActions';
 
 class ViewProfile extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    // this.state={
-    //   profile : UserStore.get()
-    // }
 
     this._onChange = this._onChange.bind(this);
   }
@@ -22,28 +16,11 @@ class ViewProfile extends Component {
     this.props.getProfile();
   }
 
-  componentDidMount() {
-    //UserStore.startListening(this._onChange);
-  }
-
-  componentWillUnmount() {
-    //UserStore.stopListening(this._onChange);
-  }
-
-  _onChange() {
-    // this.setState({
-    //   profile: UserStore.get()
-    // });
-  }
-
-  render(){
-    //let { _id ,username} = this.state.profile;
+  render() {
     let { username, name, image, phone, location, pets, _id, walker } = this.props;
-
     let path = `/editProfile/${_id}`
 
-    return(
-
+    return (
       <div>
         <h1>Hello</h1>
         <p>{username}'s profile page</p>

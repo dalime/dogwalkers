@@ -21,13 +21,7 @@ mongoose.Promise =Promise;
 // APP DECLARATION
 
 const app = express();
-/*app.use((req,res,next)=>{
-  res.handle = function(err,data){
-    res.status(err?400:200).send(err || data);
-  };
-  next();
-})
-*/
+
 // WEBPACK CONFIG
 const compiler = webpack(webpackConfig);
 

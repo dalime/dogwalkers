@@ -25,13 +25,11 @@ class LoginForm extends Component {
 
   _submit(e) {
     e.preventDefault();
-
     this.props.login(this.state);
   }
 
   render() {
     let { username, password } = this.state;
-
     return (
       <div>
         <form onSubmit={this._submit}>

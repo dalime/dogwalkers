@@ -27,15 +27,6 @@ dispatch =>({
   addWalker(ownerId, walkerId) {
     dispatch(addWalker(ownerId, walkerId))
   }
-  // changeSort(value){
-  //   dispatch(changeSort(value))
-  // },
-  // deletePokemon(id){
-  //   dispatch(deletePokemon(id))
-  // },
-  // updatePokemon(newVal,id){
-  //   dispatch(updatePokemon(newVal,id))
-  // }
 }))
 export default class WalkerView extends Component {
   constructor(props) {

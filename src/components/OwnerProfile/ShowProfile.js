@@ -1,7 +1,5 @@
-import React , {Component} from 'react'
-
+import React , { Component } from 'react'
 import { connect } from 'react-redux';
-
 import { getProfile, removeWalker } from '../../actions/OwnerActions';
 
 class ShowProfile extends Component {
@@ -20,11 +18,9 @@ class ShowProfile extends Component {
     this.props.removeWalker(this.props.ownerId);
   }
 
-  render (){
+  render() {
     let { name , image , phone, location, walker } = this.props.profile;
-
     let Walker = <div></div>
-
     if (walker) {
       Walker = (
         <div>
