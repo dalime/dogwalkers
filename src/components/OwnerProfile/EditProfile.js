@@ -5,7 +5,7 @@ export default class EditProfile extends Component{
   render() {
     return(
       <div>
-        <h3>ProfileEdit</h3>
+        <h3 className='text-center'>Edit</h3>
         <ProfileForm user={this.props.location.query.userid}/>
       </div>
     )

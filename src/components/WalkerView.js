@@ -5,6 +5,7 @@ import { browserHistory } from 'react-router';
 import { Modal, Button } from 'react-bootstrap';
 import { getProfile, addWalker } from '../actions/OwnerActions';
 import { getWalker, deleteWalker, updateWalker } from '../actions/WalkerActions';
+import { TextField, RaisedButton } from 'material-ui';
 
 @connect(
 state =>({
@@ -27,6 +28,10 @@ dispatch =>({
   addWalker(ownerId, walkerId) {
     dispatch(addWalker(ownerId, walkerId))
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 97612abcbe9c1d0019b78e82bb7e53acf6c446b8
 }))
 export default class WalkerView extends Component {
   constructor(props) {
@@ -92,24 +97,73 @@ export default class WalkerView extends Component {
   }
 
   render() {
-    let { detail } = this.props;
+    let style = {
+      borderColor: '#000'
+    }
+    let { _id, hours, image, location, name, phone } = this.props.detail;
 
     return (
-      <div>
-        <h1 className="text-center">Walker View</h1>
-        <img src={detail.image} alt=""/>
-        <h3>Hours: {detail.hours}</h3>
-        <button className="btn btn-danger" onClick={this._deleteWalker}>Delete</button>
-        <button className="btn btn-warning" onClick={this._openModal}>Update</button>
-        <button className="btn btn-success" onClick={this._hire}>Hire</button>
+      <div className='col-xs-12 col-md-6 col-md-offset-3 text-center'>
+        <div className='walkerProfFrame'>
+          <h2 className="text-center">{name}</h2>
+          <img src={image}/>
+          <div className='walkerProfText'>
+            <h5>Location: {location}</h5>
+            <h5>Hours: {hours}</h5>
+            <h5>Phone: {phone}</h5>
+          </div>
+        </div>
+        <div className="text-center">
+          <RaisedButton
+          label="Edit"
+          labelPosition="before"
+          className='editBtn'
+          onClick={this._openModal}/>
+          <RaisedButton
+          label="Hire"
+          labelPosition="before"
+          className='editBtn'
+          onClick={this._hire}/>
+        </div>
 
-        <Modal show={this.state.showModal} onHide={this._closeModal}>
+        <Modal show={this.state.showModal} onHide={this._closeModal} className='Modal'>
           <form onSubmit={this._updateWalker}>
             <Modal.Header closeButton>
-              <Modal.Title>Update Walker</Modal.Title>
+              <Modal.Title>Edit</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <label>
+              <TextField
+              hintText='Name'
+              className="editInput" floatingLabelFixed={true} id='name'
+              onChange={this._onInputChange} data-type="name"
+              underlineFocusStyle={style} value={this.state.name} required
+              />
+              <TextField
+              hintText='Hours'
+              className="editInput" floatingLabelFixed={true} id='hours'
+              onChange={this._onInputChange} data-type="hours"
+              underlineFocusStyle={style} value={this.state.hours} required
+              />
+              <TextField
+              hintText='Image'
+              className="editInput" floatingLabelFixed={true} id='image'
+              onChange={this._onInputChange} data-type="image"
+              underlineFocusStyle={style} value={this.state.image} required
+              />
+              <TextField
+              hintText='Phone'
+              className="editInput" floatingLabelFixed={true} id='phone'
+              onChange={this._onInputChange} data-type="phone"
+              underlineFocusStyle={style} value={this.state.phone} required
+              />
+              <TextField
+              hintText='Location'
+              className="editInput" floatingLabelFixed={true} id='location'
+              onChange={this._onInputChange} data-type="location"
+              underlineFocusStyle={style} value={this.state.location} required
+              />
+
+              {/* <label>
                 Name:
                 <input type="text" data-type='name' onChange={this._onInputChange}  value={this.state.name} required/>
               </label>
@@ -128,7 +182,7 @@ export default class WalkerView extends Component {
               <label>
                 Location:
                 <input type="text" data-type='location' onChange={this._onInputChange} value={this.state.location} required/>
-              </label>
+              </label> */}
             </Modal.Body>
             <Modal.Footer>
               <Button className="btn btn-success" type="submit">Save</Button>

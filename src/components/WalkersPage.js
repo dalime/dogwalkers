@@ -57,8 +57,8 @@ dispatch =>({
 
     return (
       <div>
-        <h1>Hello</h1>
-        <form className="form-group" onSubmit={this._submitForm}>
+        <h1 className='text-center'>Dog Walkers</h1>
+        {/* <form className="form-group" onSubmit={this._submitForm}>
         <label>
           Name:
           <input type="text" data-type="name" className="form-control" onChange={this._onInputChange}/>
@@ -79,10 +79,17 @@ dispatch =>({
           Location:
           <input type="text" data-type="location" className="form-control" onChange={this._onInputChange}/>
         </label>
+<<<<<<< HEAD
           <button className="btn btn-success">
             Submit
           </button>
         </form>
+=======
+        <button className="btn btn-success">
+        Submit
+        </button>
+        </form> */}
+>>>>>>> 97612abcbe9c1d0019b78e82bb7e53acf6c446b8
         <WalkersList walkers={walkers}/>
       </div>
     )

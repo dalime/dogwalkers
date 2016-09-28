@@ -3,6 +3,8 @@ import { updateProfile } from '../../actions/OwnerActions'
 
 import { connect } from 'react-redux';
 
+import { TextField, RaisedButton } from 'material-ui';
+
 class ProfileForm extends Component{
   constructor(props) {
     super(props);
@@ -41,34 +43,65 @@ class ProfileForm extends Component{
 
   render() {
     let { username , name , image, phone, location, pets, _id } = this.props;
+<<<<<<< HEAD
+=======
+    let style = {
+      borderColor: '#000'
+    }
+
+>>>>>>> 97612abcbe9c1d0019b78e82bb7e53acf6c446b8
     return (
       <form onSubmit={this._update} data-id={_id}>
-        <div className="form-group">
-          <label>Username</label>
-          <input type="text" id="username" required className="form-control" onChange={this._onInputChange} data-statekey="username" placeholder="name"/>
+        <div className="col-xs-12 col-md-6 col-md-offset-3">
+          <TextField
+          hintText={username} floatingLabelText="Username"
+          className="editInput" floatingLabelFixed={true} id='username'
+          required onChange={this._onInputChange} data-statekey="username"
+          underlineFocusStyle={style}
+          />
+          <TextField
+          hintText={name} floatingLabelText="Name"
+          className="editInput" floatingLabelFixed={true} id='name'
+          required onChange={this._onInputChange} data-statekey="name"
+          underlineFocusStyle={style}
+          />
+          <TextField
+          hintText={image} floatingLabelText="Image"
+          className="editInput" floatingLabelFixed={true} id='image'
+          required onChange={this._onInputChange} data-statekey="image"
+          underlineFocusStyle={style}
+          />
+          <TextField
+          hintText={phone} floatingLabelText="Phone"
+          className="editInput" floatingLabelFixed={true} id='phone'
+          required onChange={this._onInputChange} data-statekey="phone"
+          underlineFocusStyle={style}
+          />
+          <TextField
+          hintText={location} floatingLabelText="Location"
+          className="editInput" floatingLabelFixed={true} id='location'
+          required onChange={this._onInputChange} data-statekey="location"
+          underlineFocusStyle={style}
+          />
+          <TextField
+          hintText={pets} floatingLabelText="Pets"
+          className="editInput" floatingLabelFixed={true} id='pets'
+          required onChange={this._onInputChange} data-statekey="pets"
+          underlineFocusStyle={style}
+          />
+          <div className="col-xs-12 text-center">
+            <RaisedButton
+            label="Save"
+            labelPosition="before"
+            type='submit'
+            className='editBtn'/>
+            <RaisedButton
+            label="Reset"
+            labelPosition="before"
+            onClick={this.resetForm}
+            className='editBtn'/>
+          </div>
         </div>
-        <div className="form-group">
-          <label>Name</label>
-          <input type="text" id="name" required className="form-control" onChange={this._onInputChange} data-statekey="name" placeholder="First Last"/>
-        </div>
-        <div className="form-group">
-          <label>Image</label>
-          <input type="text" id="image" required className="form-control" onChange={this._onInputChange} data-statekey="image" placeholder="URL"/>
-        </div>
-        <div className="form-group">
-          <label>Phone</label>
-          <input type="text" id="phone" required className="form-control" onChange={this._onInputChange} data-statekey="phone" placeholder="123-456-7890"/>
-        </div>
-        <div className="form-group">
-          <label>Location</label>
-          <input type="text" id="location" required className="form-control" onChange={this._onInputChange} data-statekey="location" placeholder="123 Main St, City, ST"/>
-        </div>
-        <div className="form-group">
-          <label>Pets</label>
-          <input type="text" id="pets" required className="form-control" onChange={this._onInputChange} data-statekey="pets" placeholder="Feebie"/>
-        </div>
-        <button type="submit">Update</button>
-        <button onClick={this.resetForm}>Reset</button>
       </form>
     )
   }
