@@ -43,7 +43,7 @@ http://localhost:8000
 
 * **Danny Lim** - [Profile](https://github.com/dalime)
 * **Dhilipanraja Joseph** - [Profile](https://github.com/dhilipanraja-joseph)
-* **Zhaggy** - [Profile](https://github.com/Zhaggy)
+* **Zhaggy M** - [Profile](https://github.com/Zhaggy)
 
 ## License
 
